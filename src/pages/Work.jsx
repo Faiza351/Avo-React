@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../components/Header'
-import About from '../components/About'
+import Navbar from '../components/Navbar';
 import imgh1 from '../assets/images/work-1.jpg'
 import imgh2 from '../assets/images/work-2.jpg'
 import imgh3 from '../assets/images/work-3.jpg'
@@ -10,131 +9,55 @@ import imgh6 from '../assets/images/work-6.jpg'
 import person1 from '../assets/images/person_1.jpg'
 import person2 from '../assets/images/person_2.jpg'
 import person_3 from '../assets/images/person_3.jpg'
-import imga from '../assets/images/about.jpg'
-import Testimonials from '../components/Testimonials'
-import Blog from '../components/Blog'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-// import Aos from 'aos';
-// import 'aos/dist/aos.css'
+import Footer from '../components/Footer';
 
-function Home() {
-  //   useEffect(() => {
-  //     Aos.init();
-  // }, []);
+function Work() {
+    const [navbarScrolled, setNavbarScrolled] = useState(false);
 
-  const [navbarScrolled, setNavbarScrolled] = useState(false);
+    useEffect(() => {
+        // Aos.init();
+        const handleScroll = () => {
+            setNavbarScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
-  useEffect(() => {
-    // Aos.init();
-    const handleScroll = () => {
-      setNavbarScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const counters = document.querySelectorAll(".counter");
 
-  const counters = document.querySelectorAll(".counter");
+    counters.forEach((counter) => {
+        counter.innerText = "0";
+        const updateCounter = () => {
+            const target = +counter.getAttribute("data-target");
+            const count = +counter.innerText;
+            const increment = target / 200;
+            if (count < target) {
+                counter.innerText = `${Math.ceil(count + increment)}`;
+                setTimeout(updateCounter, 1);
+            } else counter.innerText = target;
+        };
+        updateCounter();
+    });
+    return (
+        <>
+            <div className='container-fluid cf1'>
+                <Navbar />
 
-  counters.forEach((counter) => {
-    counter.innerText = "0";
-    const updateCounter = () => {
-      const target = +counter.getAttribute("data-target");
-      const count = +counter.innerText;
-      const increment = target / 200;
-      if (count < target) {
-        counter.innerText = `${Math.ceil(count + increment)}`;
-        setTimeout(updateCounter, 1);
-      } else counter.innerText = target;
-    };
-    updateCounter();
-  });
 
-  return (
+                <div className='headerdiv1' data-aos="fade-right">
+                    <a href="#" style={{ textDecoration: "none" }}><h3 style={{ color: "lightgrey" }}>Home <i className="fa-solid fa-angle-right" style={{ color: "red" }}></i></h3></a>
+                    <div className='aboutush3'>
+                        <h3>Work <i className="fa-solid fa-angle-right" style={{ color: "red" }}></i></h3>
+                    </div>
 
-    <>
-      <div className="container-fluid cf1">
-        <Navbar />
+                    <h1 className='aboutush2'>Work</h1>
+                </div>
 
-        <div className='headerdiv' data-aos="fade-right">
-          <h1 style={{ color: "white" }}>WE CREATE MODERN & MINIMAL WEBSITE</h1><br />
-          <p style={{ color: "white" }}>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-          <br /><button type="button" className="btn " style={{ backgroundColor: "maroon", color: "white", padding: "2%" }}>Explore Project</button>
-        </div>
 
-        <div className="counter-container" data-aos="fade-left">
-          {/* <button type='button' style={{borderLeft:"5px solid transparent",borderRight:"5px solid maroon",borderTop:"5px solid transparent",borderBottom:"5px solid transparent",paddingLeft:"0px",paddingRight:"10px",paddingBottom:"0px",paddingTop:"0px",backgroundColor:"transparent"}} >
-                    
-                     </button> */}
-          <div className="counter" data-target="1200" style={{ color: "white" }}></div>
-          <div className='mline'>L</div>
-          <span style={{ color: "lightgrey" }}>Years of experience</span>
-        </div>
 
-        <section>
-          <a href="" className='playBtn'></a>
 
-        </section>
-      </div>
-
-      <h1 className='au'>About Us</h1>
-      <About />
-      <div className='container con2'>
-        <div className="row">
-          <div className="col-sm-4 con2c1" data-aos="fade-right">
-            <h3>Welcome to AVO A Personal Porfolio Web Agency</h3>
-            <p style={{ color: "gray" }}>Separated they live in Bookmarksgrove right at the coast
-              of the Semantics, a large language ocean. A small river named
-              Duden flows by their place and supplies it with the necessary regelialia.
-              It is a paradisematic country, in which roasted parts of sentences fly into
-              your mouth.
-            </p>
-          </div>
-          <div className="col-sm-4 con2c2" data-aos="fade-up">
-            <img src={imga} alt="imga" className='d-block w-100' style={{ height: "44vh", boxShadow: "0 8px 20px -4px gray" }} />
-          </div>
-          <div className="col-sm-4 con2c3" data-aos="fade-left">
-            <p style={{ color: "gray" }}>Far far away, behind the word mountains, far from the countries
-              Vokalia and Consonantia, there live the blind texts. Separated they
-              live in Bookmarksgrove right at the coast of the Semantics, a large
-              language ocean. A small river named Duden flows by their place and supplies
-              it with the necessary regelialia. It is a paradisematic country, in which
-              roasted parts of sentences fly into your mouth.
-            </p>
-            <button type="button" className="btn btn-danger">View All Projects</button>
-
-          </div>
-        </div>
-        <div className="row mt-3" data-aos="fade-right">
-          <div className="col-sm-4 conc31">
-            <p style={{ color: "red", fontSize: "48px", }}><u>01</u></p>
-            <div className="intxt">
-              <h5>Search Engine Optimization</h5>
-              <p>Far far away, behind the word mountains</p>
             </div>
-          </div>
-
-          <div className="col-sm-4 conc32">
-            <p style={{ color: "red", fontSize: "48px" }}><u>02</u></p>
-            <div className="intxt">
-              <h5>Search Engine Optimization</h5>
-              <p>Far far away, behind the word mountains</p>
-            </div>
-          </div>
-
-          <div className="col-sm-4 conc33">
-            <p style={{ color: "red", fontSize: "48px" }}><u>03</u></p>
-            <div className="intxt">
-              <h5>Search Engine Optimization</h5>
-              <p>Far far away, behind the word mountains</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-
-      <div className='container cnew'>
+            <div className='container cnew'>
         <br /><br /><br />
         <h1 style={{ textAlign: "center", fontSize: "46px" }} data-aos="fade-up">Our Works</h1>
         <br /><br /><br />
@@ -295,26 +218,10 @@ function Home() {
         </div>
       </div>
 
-      <h1 className='tm'>Clients Says About Us?</h1>
-      <Testimonials />
-      <div className="container imgbgc">
-        <div className='imgbgdiv'>
-          <h5 style={{ color: "maroon" }}>Get Started</h5>
-          <h3 style={{ color: "white" }}>Fill in the brief and get the project estimate</h3>
-          <p style={{ color: "lightgrey", fontSize: "18px" }}>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          <button type="button" className="btn" style={{ backgroundColor: "maroon", color: "white" }}>Get Started</button>
-        </div>
-      </div> <br />
-      <Blog />
-      <Footer />
+      <Footer/>
 
-
-
-
-
-
-    </>
-  )
+        </>
+    )
 }
 
-export default Home
+export default Work

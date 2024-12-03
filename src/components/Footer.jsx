@@ -39,7 +39,7 @@ function Footer() {
             <div className="col-sm-2 footcol5" data-aos="fade-up">
             <h4 style={{color:"white"}}>Have a Questions?</h4> <br />
             <i className="fa-solid fa-map" style={{color:"lightgrey"}}></i><p className='footext1'>203 Fake St. Mountain View, San Francisco, California, USA</p>
-            <i className="fa-solid fa-phone" style={{color:"lightgrey"}}></i><p className='footext1'>+2 392 3929 210</p>
+            <i className="fa-solid fa-phone phoneicon"></i><p className='footext1'>+2 392 3929 210</p>
             <i className="fa-solid fa-envelope" style={{color:"lightgrey"}}></i><p className='footext1'>info@yourdomain.com</p>
 
             </div>

@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import img1 from '../assets/images/bg_1.jpg'
 import img2 from '../assets/images/bg_2.jpg'
+import { Link } from 'react-router-dom';
+// import Aos from 'aos';
+// import 'aos/dist/aos.css'
 
 
 function Header() {
+    
     const [navbarScrolled, setNavbarScrolled] = useState(false);
 
     useEffect(() => {
+        // Aos.init();
         const handleScroll = () => {
             setNavbarScrolled(window.scrollY > 50);
         };
@@ -39,13 +44,13 @@ function Header() {
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="menu"><b>MENU</b></span>
                         </button>
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div className="collapse navbar-collapse navtest" id="navbarSupportedContent">
                             <ul className="navbar-nav mt-1 mb-0">
                                 <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href="#" style={{color:"red"}}><b>HOME</b></a>
+                                    <Link className="nav-link active" aria-current="page" to={"/"} style={{color:"red"}}><b>HOME</b></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link txt" href="#" style={{color:"gray"}}><b>ABOUT</b></a>
+                                    <Link className="nav-link txt" to="/about-us" style={{color:"gray"}}><b>ABOUT</b></Link>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link txt" href="#" style={{color:"gray"}}><b>WORK</b></a>
@@ -60,13 +65,14 @@ function Header() {
                         </div>
                     </div>
                 </nav>
+                
 
-                <div className='headerdiv' data-aos="fade-right">
+                <div className='headerdiv' data-aos="fade-right"> 
                     <h1 style={{ color: "white" }}>WE CREATE MODERN & MINIMAL WEBSITE</h1><br />
                     <p style={{ color: "white" }}>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                     <br /><button type="button" className="btn " style={{ backgroundColor: "maroon", color: "white", padding: "2%" }}>Explore Project</button>
                 </div>
-
+                
                 <div className="counter-container" data-aos="fade-left">
                     {/* <button type='button' style={{borderLeft:"5px solid transparent",borderRight:"5px solid maroon",borderTop:"5px solid transparent",borderBottom:"5px solid transparent",paddingLeft:"0px",paddingRight:"10px",paddingBottom:"0px",paddingTop:"0px",backgroundColor:"transparent"}} >
                     
